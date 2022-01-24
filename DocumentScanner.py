@@ -2,10 +2,10 @@ import cv2
 import numpy as np
 
 WIDTH, HEIGHT = 640, 480
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) # Or set it according to your preferences
 cap.set(3, WIDTH)
 cap.set(4, HEIGHT)
-cap.set(10, 150)
+cap.set(10, 150) # For brightness
 
 
 def getContours(img):
@@ -82,7 +82,7 @@ while True:
     # print(biggest)
     if biggest.size != 0:
         imgWarpped = getWarpPerspective(img, biggest)
-    else:
+    else: # So that no errors occur if largest area not found
         imgWarpped = img
     cv2.imshow("Result", imgWarpped)
     if cv2.waitKey(1) & 0xFF == ord('q'):
